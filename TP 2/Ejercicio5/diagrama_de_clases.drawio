@@ -1,0 +1,104 @@
+<mxfile host="65bd71144e">
+    <diagram id="YP5KdScuAsrjVV64DlBZ" name="Página-1">
+        <mxGraphModel dx="1588" dy="732" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Colectivo" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#FFFF66;" parent="1" vertex="1" collapsed="1">
+                    <mxGeometry x="100" y="100" width="90" height="30" as="geometry">
+                        <mxRectangle x="100" y="100" width="260" height="140" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="3" value="- String modelo&lt;div&gt;- int numerointerno&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry y="26" width="260" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="2" vertex="1">
+                    <mxGeometry y="60" width="260" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="+ Colectivo(String modelo)&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;+ void setNumerointerno(int numero)&lt;br&gt;&lt;/font&gt;&lt;div&gt;+ String getModelo&lt;/div&gt;&lt;div&gt;+ int getNumerointerno&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="2" vertex="1">
+                    <mxGeometry y="68" width="260" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Categoria" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#3399FF;" parent="1" vertex="1" collapsed="1">
+                    <mxGeometry x="350" y="50" width="90" height="30" as="geometry">
+                        <mxRectangle x="310" y="45" width="210" height="140" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" value="- String nombrecategoria&lt;div&gt;- double sueldo&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="6" vertex="1">
+                    <mxGeometry y="26" width="210" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="6" vertex="1">
+                    <mxGeometry y="60" width="210" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="+ Categoria(String nombrecategoria)&lt;div&gt;+ void setSueldo(double sueldo)&lt;/div&gt;&lt;div&gt;+ double getSueldo()&lt;/div&gt;&lt;div&gt;+ String getNombrecategoria()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="6" vertex="1">
+                    <mxGeometry y="68" width="210" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Domicilio" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#66FF66;" parent="1" vertex="1" collapsed="1">
+                    <mxGeometry x="650" y="90" width="90" height="30" as="geometry">
+                        <mxRectangle x="650" y="90" width="200" height="140" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="11" value="- String calle&lt;div&gt;- int numero&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="10" vertex="1">
+                    <mxGeometry y="26" width="200" height="34" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="10" vertex="1">
+                    <mxGeometry y="60" width="200" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="+ Domicilio(String calle, int numero)&lt;div&gt;+ String getCalle()&lt;/div&gt;&lt;div&gt;+ int getNumero()&lt;/div&gt;&lt;div&gt;+ String toString()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="10" vertex="1">
+                    <mxGeometry y="68" width="200" height="72" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Chofer" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#FFB366;" parent="1" vertex="1" collapsed="1">
+                    <mxGeometry x="355" y="200" width="80" height="30" as="geometry">
+                        <mxRectangle x="355" y="200" width="240" height="240" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="- Categoria categoria&lt;div&gt;- Domicilio domicilio&lt;/div&gt;&lt;div&gt;- String nombre&lt;/div&gt;&lt;div&gt;- Colectivo colectivo&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="14" vertex="1">
+                    <mxGeometry y="26" width="240" height="64" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="14" vertex="1">
+                    <mxGeometry y="90" width="240" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="+ Chofer(String nombre)&lt;div&gt;+ String getNombre()&lt;/div&gt;&lt;div&gt;+ void setDomicilio(Domicilio domicilio)&lt;/div&gt;&lt;div&gt;+ Domicilio getDomicilio()&lt;/div&gt;&lt;div&gt;+ void setCategoria(Categoria categoria)&lt;/div&gt;&lt;div&gt;+ Categoria getCategoria()&lt;/div&gt;&lt;div&gt;+ void setColectivo(Colectivo colectivo)&lt;/div&gt;&lt;div&gt;+ Colectivo getColectivo()&lt;/div&gt;&lt;div&gt;+ String toString()&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="14" vertex="1">
+                    <mxGeometry y="98" width="240" height="142" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Empresa" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;fillColor=#FF66FF;" parent="1" vertex="1" collapsed="1">
+                    <mxGeometry x="350" y="555" width="90" height="30" as="geometry">
+                        <mxRectangle x="350" y="555" width="360" height="350" as="alternateBounds"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="19" value="- String nombre&lt;div&gt;- ArrayList&amp;lt;Colectivo&amp;gt; colectivos&lt;/div&gt;&lt;div&gt;- ArrayList&amp;lt;Categoria&amp;gt; categorias&lt;/div&gt;&lt;div&gt;- ArrayList&amp;lt;Chofer&amp;gt; personal&lt;/div&gt;&lt;div&gt;- static int siguienteNumero = 0&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="18" vertex="1">
+                    <mxGeometry y="26" width="360" height="74" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" parent="18" vertex="1">
+                    <mxGeometry y="100" width="360" height="8" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="+ Empresa(String nombre)&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;+ String getNombre()&lt;br&gt;&lt;/font&gt;&lt;div&gt;+ void agregarColectivo(Colectivo colectivo)&lt;/div&gt;&lt;div&gt;+ void eliminarColectivo(Colectivo colectivo)&lt;/div&gt;&lt;div&gt;+ ArrayList&amp;lt;Colectivo&amp;gt; getColectivos()&lt;/div&gt;&lt;div&gt;+ void agregarCategoria(Categoria categoria)&lt;/div&gt;&lt;div&gt;+ void eliminarCategoria(Categoria categoria)&lt;/div&gt;&lt;div&gt;+ ArrayList&amp;lt;Categoria&amp;gt; getCategorias()&lt;/div&gt;&lt;div&gt;+ void agregarChofer(Chofer chofer)&lt;/div&gt;&lt;div&gt;+ void despedirChofer(Chofer chofer)&lt;/div&gt;&lt;div&gt;+ ArrayList&amp;lt;Chofer&amp;gt; getPersonal()&lt;/div&gt;&lt;div&gt;+ int getChoferesSinColectivo()&lt;/div&gt;&lt;div&gt;+ int getCantidadColectivos()&lt;/div&gt;&lt;div&gt;+ ArrayList&amp;lt;Chofer&amp;gt; getChoferesCategoria(Categoria categoria)&lt;/div&gt;&lt;div&gt;+ ArrayList&amp;lt;Categoria&amp;gt; getCategoriasSueldo(double minSueldo)&lt;/div&gt;&lt;div&gt;+ ArrayList&amp;lt;Chofer&amp;gt; getChoferesSueldo(double minSueldo)&lt;/div&gt;&lt;/div&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" parent="18" vertex="1">
+                    <mxGeometry y="108" width="360" height="242" as="geometry"/>
+                </mxCell>
+                <mxCell id="22" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" source="14" target="6" edge="1">
+                    <mxGeometry x="-1" y="3" relative="1" as="geometry">
+                        <mxPoint x="310" y="170" as="sourcePoint"/>
+                        <mxPoint x="350" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=0;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="14" target="2" edge="1">
+                    <mxGeometry x="-1" y="3" relative="1" as="geometry">
+                        <mxPoint x="290" y="240" as="sourcePoint"/>
+                        <mxPoint x="450" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="24" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;entryX=0.5;entryY=1;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="14" target="10" edge="1">
+                    <mxGeometry x="-1" y="3" relative="1" as="geometry">
+                        <mxPoint x="290" y="240" as="sourcePoint"/>
+                        <mxPoint x="450" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" value="" style="endArrow=open;html=1;endSize=12;startArrow=diamondThin;startSize=14;startFill=1;edgeStyle=orthogonalEdgeStyle;align=left;verticalAlign=bottom;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="18" target="14" edge="1">
+                    <mxGeometry x="-1" y="3" relative="1" as="geometry">
+                        <mxPoint x="170" y="200" as="sourcePoint"/>
+                        <mxPoint x="330" y="200" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
