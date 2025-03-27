@@ -1,21 +1,29 @@
 package Ejercicio8;
 
 import java.sql.Date;
-import java.util.Vector;
 
 public class Partido {
-    private Vector<Equipo> equipos;
-    private Date fecha;
+    protected Equipo[] equipos = new Equipo[2];
+    protected Date fecha;
 
     public Partido(Date fecha) {
         this.fecha = fecha;
     }
 
-    public Vector<Equipo> getEquipos() {
+    public Partido(Equipo[] equipos) {
+        this.equipos = equipos;
+    }
+
+    public Partido(Equipo[] equipos, Date fecha) {
+        this.equipos = equipos;
+        this.fecha = fecha;
+    }
+
+    public Equipo[] getEquipos() {
         return equipos;
     }
 
-    public void setEquipos(Vector<Equipo> equipos) {
+    public void setEquipos(Equipo[] equipos) {
         this.equipos = equipos;
     }
 
