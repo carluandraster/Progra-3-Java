@@ -70,4 +70,9 @@ public class Equipo {
     public void setCantGolesEnContra(int cantGolesEnContra) {
         this.cantGolesEnContra = cantGolesEnContra;
     }
+
+    @Override
+    public String toString() {
+        return this.nombre;
+    }
 }
