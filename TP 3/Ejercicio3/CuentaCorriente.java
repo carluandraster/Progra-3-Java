@@ -16,12 +16,13 @@ public class CuentaCorriente extends CuentaBancaria {
 
     @Override
     public boolean extraer(double monto) {
-        if (this.saldo - monto < -topeDeuda)
+        if (monto <= 0) {
+            return false;
+        } else if (this.saldo - monto < -topeDeuda)
             return false;
         else {
             this.saldo -= monto;
             return true;
         }
     }
-
 }
