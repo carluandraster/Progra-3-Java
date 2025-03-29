@@ -3,8 +3,9 @@ public abstract class Empleado {
     private int nroLegajo;
     private String domicilio;
 
-    public Empleado(String nombre, String domicilio) {
+    public Empleado(String nombre, int nroLegajo, String domicilio) {
         this.nombre = nombre;
+        this.nroLegajo = nroLegajo;
         this.domicilio = domicilio;
     }
 
@@ -32,6 +33,6 @@ public abstract class Empleado {
 
     @Override
     public String toString() {
-        return this.nombre + "\t$" + this.getSueldo() + "\n";
+        return this.nombre + "\t$" + this.getSueldo();
     }
 }

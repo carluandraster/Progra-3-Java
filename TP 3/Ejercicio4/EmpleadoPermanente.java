@@ -1,9 +1,9 @@
 public abstract class EmpleadoPermanente extends Empleado {
-    protected double sueldoBase;
+    private double sueldoBase;
     protected int antiguedad;
 
-    public EmpleadoPermanente(String nombre, String domicilio) {
-        super(nombre, domicilio);
+    public EmpleadoPermanente(String nombre, int nroLegajo, String domicilio) {
+        super(nombre, nroLegajo, domicilio);
     }
 
     public double getSueldoBase() {

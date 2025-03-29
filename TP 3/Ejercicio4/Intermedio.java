@@ -1,6 +1,6 @@
 public class Intermedio extends EmpleadoPermanente {
-    public Intermedio(String nombre, String domicilio) {
-        super(nombre, domicilio);
+    public Intermedio(String nombre, int nroLegajo, String domicilio) {
+        super(nombre, nroLegajo, domicilio);
     }
 
     @Override

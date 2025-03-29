@@ -1,6 +1,6 @@
 public class Principiante extends EmpleadoPermanente {
-    public Principiante(String nombre, String domicilio) {
-        super(nombre, domicilio);
+    public Principiante(String nombre, int nroLegajo, String domicilio) {
+        super(nombre, nroLegajo, domicilio);
     }
 
     @Override

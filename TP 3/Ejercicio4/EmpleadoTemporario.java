@@ -2,8 +2,8 @@ public class EmpleadoTemporario extends Empleado {
     private double sueldoPorHora;
     private int horasTrabajadas;
 
-    public EmpleadoTemporario(String nombre, String domicilio) {
-        super(nombre, domicilio);
+    public EmpleadoTemporario(String nombre, int nroLegajo, String domicilio) {
+        super(nombre, nroLegajo, domicilio);
     }
 
     public double getSueldoPorHora() {

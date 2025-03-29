@@ -1,6 +1,6 @@
 public class Experto extends EmpleadoPermanente {
-    public Experto(String nombre, String domicilio) {
-        super(nombre, domicilio);
+    public Experto(String nombre, int nroLegajo, String domicilio) {
+        super(nombre, nroLegajo, domicilio);
     }
 
     @Override
