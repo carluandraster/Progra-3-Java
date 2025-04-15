@@ -10,7 +10,7 @@ public class VehiculoFactory {
     /*
      * Patrón Singleton
      */
-    public VehiculoFactory getInstancia() {
+    public static VehiculoFactory getInstancia() {
         if (_instancia == null)
             return new VehiculoFactory();
         else
@@ -33,7 +33,7 @@ public class VehiculoFactory {
      * Crea una combi o un auto
      */
     public TransportePersonas getVehiculo(String tipoVehiculo, String patente, int cantidadPlazas) {
-        if (tipoVehiculo == null)
+        if (tipoVehiculo == null || cantidadPlazas <= 0)
             return null;
         if (tipoVehiculo.equalsIgnoreCase("AUTO"))
             return new Auto(patente, cantidadPlazas);
@@ -47,7 +47,7 @@ public class VehiculoFactory {
      * Crea una camioneta de carga
      */
     public CamionetaDeCarga getVehiculo(String tipoVehiculo, String patente, double PMA) {
-        if (tipoVehiculo == null)
+        if (tipoVehiculo == null || PMA <= 0)
             return null;
         if (tipoVehiculo.equalsIgnoreCase("CAMIONETA DE CARGA"))
             return new CamionetaDeCarga(patente, PMA);

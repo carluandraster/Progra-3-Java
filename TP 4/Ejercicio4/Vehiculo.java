@@ -17,6 +17,6 @@ public abstract class Vehiculo {
     @Override
     public String toString() {
         return " patente: " + this.patente + "\n" +
-                "Precio: " + this.getPrecio(1) + "por dia";
+                "Precio: $" + Math.round(this.getPrecio(1)) + " por dia";
     }
 }
