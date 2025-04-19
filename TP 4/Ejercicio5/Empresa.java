@@ -116,11 +116,21 @@ public class Empresa {
     }
 
     public void agregarAcoplado(int tara, int cargaMaxima, boolean refrigerado) {
+        Acoplado aux;
         if (tara > 0 && cargaMaxima > 0) {
-            this.acoplados.put(siguienteNumeroAcoplado,
-                    this.generadorDeAcoplados.generarAcoplado(tara, cargaMaxima, refrigerado));
+            aux = this.generadorDeAcoplados.generarAcoplado(tara, cargaMaxima, refrigerado);
+            aux.setNumeroAcoplado(siguienteNumeroAcoplado);
+            this.acoplados.put(siguienteNumeroAcoplado, aux);
             siguienteNumeroAcoplado++;
         }
+    }
+
+    public void quitarAcoplado(int numeroInterno) {
+        this.acoplados.remove(numeroInterno);
+    }
+
+    public ArrayList<Acoplado> getAcoplados() {
+        return (ArrayList<Acoplado>) this.acoplados.values();
     }
 
     public int getChoferesSinVehiculo() {
