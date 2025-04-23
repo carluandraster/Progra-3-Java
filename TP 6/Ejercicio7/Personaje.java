@@ -1,8 +1,8 @@
 
-public abstract class Personaje implements Movible {
+public abstract class Personaje implements Movible, Comparable<Personaje>, Cloneable {
     private String nombre;
     protected int vitalidad;
-    private Posicion posicion;
+    protected Posicion posicion;
     protected double alcance;
     protected int danio;
     private double distanciaMaximaDeDeplazamiento;
@@ -17,12 +17,11 @@ public abstract class Personaje implements Movible {
         return nombre;
     }
 
-    public boolean ataca(Personaje personaje) {
+    public void ataca(Personaje personaje) throws AtaqueImposibleException{
         if (this.validarDistancia(personaje.posicion)) {
             this.daniar(personaje);
-            return true;
         } else {
-            return false;
+            throw new AtaqueImposibleException(this,personaje);
         }
     }
 
@@ -71,5 +70,35 @@ public abstract class Personaje implements Movible {
     @Override
     public double distancia(Movible movible) {
         return this.posicion.distancia(movible);
+    }
+
+    @Override
+    public int compareTo(Personaje o) {
+        int aux = this.nombre.compareTo(o.nombre);
+        if (aux == 0) {
+            if (this.vitalidad < o.vitalidad) {
+                aux = -1;
+            } else {
+                if (this.vitalidad == o.vitalidad) {
+                    aux = 0;
+                } else {
+                    aux = 1;
+                }
+            }
+        }
+        return aux;
+    }
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        Personaje aux;
+        try {
+            aux = (Personaje)super.clone();
+            aux.posicion = (Posicion)this.posicion.clone();
+            return aux;
+        } catch (CloneNotSupportedException e) {
+            System.err.println("No se puede clonar este personaje porque tiene una posicion no cloneable");
+            throw new InternalError(e.toString());
+        }
     }
 }

@@ -1,4 +1,4 @@
-public class Posicion implements Movible {
+public class Posicion implements Movible, Cloneable {
     private double x;
     private double y;
 
@@ -26,5 +26,10 @@ public class Posicion implements Movible {
     @Override
     public double distancia(Movible otroMovible) {
         return Math.sqrt(Math.pow(otroMovible.getPosx() - this.x, 2) + Math.pow(otroMovible.getPosy() - this.y, 2));
+    }
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 }

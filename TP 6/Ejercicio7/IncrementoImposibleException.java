@@ -17,4 +17,12 @@ public class IncrementoImposibleException extends Exception {
         this.distanciaPretendida = distanciaPretendida;
     }
 
+    public double getMaxDistanciaSoportada() {
+        return maxDistanciaSoportada;
+    }
+
+    public double getDistanciaPretendida() {
+        return distanciaPretendida;
+    }
+
 }

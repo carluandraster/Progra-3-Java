@@ -16,15 +16,14 @@ public class Arquero extends Personaje {
     }
 
     @Override
-    public boolean ataca(Personaje personaje) {
+    public void ataca(Personaje personaje) throws AtaqueImposibleException{
         if (this.cantidadFlechas > 0)
             this.cantidadFlechas--;
-        boolean aux = super.ataca(personaje);
+        super.ataca(personaje);
         if (this.cantidadFlechas == 0) {
             this.alcance = 5;
             this.danio = 5;
         }
-        return aux;
     }
 
     @Override
