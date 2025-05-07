@@ -13,7 +13,6 @@ public class Ordenadora {
     }
 
     public static void ordenar(Comparable[] array){
-        int longitud = array.length;
         Comparable aux;
         int iMin;
         for (int i = 0; i < array.length; i++) {
