@@ -1,9 +1,9 @@
 public class Ordenadora {
-    // Devuelve el índice donde está el mínimo
+    // Devuelve el índice donde está el mínimo partiendo de un índice
     private static int inMin(int indiceInicial,Comparable[] array){
         Comparable min = array[indiceInicial];
         int iMin = indiceInicial;
-        for (int i = 1; i < array.length; i++) {
+        for (int i = indiceInicial + 1; i < array.length; i++) {
             if (array[i].compareTo(min) < 0) {
                 min = array[i];
                 iMin = i;
