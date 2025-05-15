@@ -18,8 +18,10 @@ public class Ventana extends javax.swing.JFrame implements IVista {
         private javax.swing.JDesktopPane jDesktopPane1;
         private javax.swing.JLabel jLabel1;
         private javax.swing.JLabel jLabel2;
+        private javax.swing.JLabel jLabel3;
         private javax.swing.JPanel jPanel1;
         private javax.swing.JPanel jPanel2;
+        private javax.swing.JPanel jPanel3;
         private javax.swing.JTextField jTextField1;
         private javax.swing.JTextField jTextField2;
         private javax.swing.JTextField jTextField3;
@@ -51,7 +53,9 @@ public class Ventana extends javax.swing.JFrame implements IVista {
                 jButton1 = new javax.swing.JButton();
                 jLabel1 = new javax.swing.JLabel();
                 jPanel2 = new javax.swing.JPanel();
+                jPanel3 = new javax.swing.JPanel();
                 jLabel2 = new javax.swing.JLabel();
+                jLabel3 = new javax.swing.JLabel();
                 jButton2 = new javax.swing.JButton();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -171,6 +175,15 @@ public class Ventana extends javax.swing.JFrame implements IVista {
                 jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
                 jLabel2.setText("Llamado más urgente:");
 
+                jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+                jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+                jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+                jLabel3.setText("Sin llamados aún");
+                jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+                javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+                jPanel3.setLayout(jPanel3Layout);
+
                 jButton2.setBackground(new java.awt.Color(0, 204, 0));
                 jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
                 jButton2.setText("ATENDER");
@@ -184,24 +197,37 @@ public class Ventana extends javax.swing.JFrame implements IVista {
                 jPanel2.setLayout(jPanel2Layout);
                 jPanel2Layout.setHorizontalGroup(
                                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(jPanel2Layout.createSequentialGroup()
+                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout
+                                                                .createSequentialGroup()
                                                                 .addContainerGap(89, Short.MAX_VALUE)
                                                                 .addGroup(jPanel2Layout.createParallelGroup(
                                                                                 javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                jPanel2Layout.createSequentialGroup()
-                                                                                                                .addComponent(jLabel2)
-                                                                                                                .addGap(80, 80, 80))
-                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                jPanel2Layout.createSequentialGroup()
-                                                                                                                .addComponent(jButton2)
-                                                                                                                .addGap(157, 157,
-                                                                                                                                157)))));
+                                                                                .addComponent(jLabel3,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                                254,
+                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                                                .addGroup(jPanel2Layout
+                                                                                                .createParallelGroup(
+                                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
+                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                                                                jPanel2Layout.createSequentialGroup()
+                                                                                                                                .addComponent(jButton2)
+                                                                                                                                .addGap(157, 157,
+                                                                                                                                                157))
+                                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
+                                                                                                                jPanel2Layout.createSequentialGroup()
+                                                                                                                                .addComponent(jLabel2)
+                                                                                                                                .addGap(80, 80, 80))))));
                 jPanel2Layout.setVerticalGroup(
                                 jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(jPanel2Layout.createSequentialGroup()
                                                                 .addGap(27, 27, 27)
                                                                 .addComponent(jLabel2)
+                                                                .addGap(34, 34, 34)
+                                                                .addComponent(jLabel3,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
+                                                                                243,
+                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
                                                                 .addPreferredGap(
                                                                                 javax.swing.LayoutStyle.ComponentPlacement.RELATED,
                                                                                 javax.swing.GroupLayout.DEFAULT_SIZE,
@@ -290,6 +316,6 @@ public class Ventana extends javax.swing.JFrame implements IVista {
         // End of variables declaration
         @Override
         public void setActionListener(ActionListener al) {
-                this.actionListener = actionListener;
+                this.actionListener = al;
         }
 }
