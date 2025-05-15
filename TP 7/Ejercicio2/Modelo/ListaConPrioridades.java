@@ -3,7 +3,7 @@ package Ejercicio2.Modelo;
 import java.util.PriorityQueue;
 
 public class ListaConPrioridades<T extends Comparable> {
-    private PriorityQueue<T> elementos;
+    protected PriorityQueue<T> elementos;
 
     public ListaConPrioridades() {
         this.elementos = new PriorityQueue<>();
