@@ -1,5 +1,6 @@
 package Ejercicio2.Modelo;
 
+import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
 public class Llamado implements Comparable<Llamado>{
@@ -58,7 +59,11 @@ public class Llamado implements Comparable<Llamado>{
 
     @Override
     public String toString() {
-        return "Llamado [fechahoraAtendido=" + fechahoraAtendido + ", fechahoraPedido=" + fechahoraPedido
-                + ", prioridad=" + prioridad + ", socio=" + socio + "]";
+        SimpleDateFormat formato = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
+        return "Nombre: " + this.socio.getNombre() + "\n" +
+        "DNI: " + this.socio.getDni() + "\n" +
+        "Domicilio: " + this.socio.getDomicilio() + "\n" +
+        "Grado de prioridad: " + this.prioridad + "\n" +
+        "Fecha y hora pedido: " + formato.format(this.fechahoraPedido.getTime());
     }
 }

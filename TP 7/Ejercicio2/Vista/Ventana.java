@@ -2,6 +2,13 @@ package Ejercicio2.Vista;
 
 import java.awt.event.ActionListener;
 
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
+
+import Ejercicio2.Modelo.ListaConPrioridades;
+import Ejercicio2.Modelo.Llamado;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -18,7 +25,7 @@ public class Ventana extends javax.swing.JFrame implements IVista {
         private javax.swing.JDesktopPane jDesktopPane1;
         private javax.swing.JLabel jLabel1;
         private javax.swing.JLabel jLabel2;
-        private javax.swing.JLabel jLabel3;
+        private javax.swing.JTextPane informacion;
         private javax.swing.JPanel jPanel1;
         private javax.swing.JPanel jPanel2;
         private javax.swing.JPanel jPanel3;
@@ -26,6 +33,7 @@ public class Ventana extends javax.swing.JFrame implements IVista {
         private javax.swing.JTextField jTextField2;
         private javax.swing.JTextField jTextField3;
         private javax.swing.JTextField jTextField4;
+        private static String SIN_LLAMADOS = "Sin llamados aún";
         // End of variables declaration
 
         /**
@@ -55,7 +63,7 @@ public class Ventana extends javax.swing.JFrame implements IVista {
                 jPanel2 = new javax.swing.JPanel();
                 jPanel3 = new javax.swing.JPanel();
                 jLabel2 = new javax.swing.JLabel();
-                jLabel3 = new javax.swing.JLabel();
+                informacion = new javax.swing.JTextPane();
                 jButton2 = new javax.swing.JButton();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -160,11 +168,17 @@ public class Ventana extends javax.swing.JFrame implements IVista {
                 jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
                 jLabel2.setText("Llamado más urgente:");
 
-                jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-                jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-                jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-                jLabel3.setText("Sin llamados aún");
-                jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+                
+                informacion.setText(SIN_LLAMADOS);
+                informacion.setEditable(false);
+
+                // Dar estilos al textPane información
+                informacion.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+                informacion.setOpaque(false);
+                StyledDocument doc = informacion.getStyledDocument();
+                SimpleAttributeSet center = new SimpleAttributeSet();
+                StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
+                doc.setParagraphAttributes(0, doc.getLength(), center, false);
 
                 javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
                 jPanel3.setLayout(jPanel3Layout);
@@ -172,6 +186,7 @@ public class Ventana extends javax.swing.JFrame implements IVista {
                 jButton2.setBackground(new java.awt.Color(0, 204, 0));
                 jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
                 jButton2.setText("ATENDER");
+                jButton2.setEnabled(false);
 
                 javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
                 jPanel2.setLayout(jPanel2Layout);
@@ -182,7 +197,7 @@ public class Ventana extends javax.swing.JFrame implements IVista {
                                                                 .addContainerGap(89, Short.MAX_VALUE)
                                                                 .addGroup(jPanel2Layout.createParallelGroup(
                                                                                 javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addComponent(jLabel3,
+                                                                                .addComponent(informacion,
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                                 254,
                                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -204,7 +219,7 @@ public class Ventana extends javax.swing.JFrame implements IVista {
                                                                 .addGap(27, 27, 27)
                                                                 .addComponent(jLabel2)
                                                                 .addGap(34, 34, 34)
-                                                                .addComponent(jLabel3,
+                                                                .addComponent(informacion,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE,
                                                                                 243,
                                                                                 javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -279,6 +294,9 @@ public class Ventana extends javax.swing.JFrame implements IVista {
                 // Agregar comandos a los botones
                 this.jButton1.setActionCommand(AGREGAR_LLAMADO);
                 this.jButton2.setActionCommand(ATENDER_LLAMADO);
+
+                // Hacer visible
+                this.setVisible(true);
         }// </editor-fold>
 
         // private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -302,5 +320,54 @@ public class Ventana extends javax.swing.JFrame implements IVista {
         public void setActionListener(ActionListener al) {
                 this.jButton1.addActionListener(al);
                 this.jButton2.addActionListener(al);
+        }
+
+        // Getters del formulario
+
+        @Override
+        public int getDNI() {
+                return Integer.parseInt(this.jTextField2.getText());
+        }
+
+        @Override
+        public String getDomicilio() {
+                return this.jTextField3.getText();
+        }
+
+        @Override
+        public String getNombre() {
+                return this.jTextField1.getText();
+        }
+
+        @Override
+        public int getPrioridad() {
+                return Integer.parseInt(this.jTextField4.getText());
+        }
+
+        @Override
+        public void actualizar(ListaConPrioridades<Llamado> cola) {
+                Llamado llamadoMasUrgente = cola.consultaElemento();
+
+                if (llamadoMasUrgente == null) {
+                        this.informacion.setText(SIN_LLAMADOS);
+
+                        // Centrar texto
+                        StyledDocument doc = informacion.getStyledDocument();
+                        SimpleAttributeSet center = new SimpleAttributeSet();
+                        StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
+                        doc.setParagraphAttributes(0, doc.getLength(), center, false);
+
+                        this.jButton2.setEnabled(false);
+                } else {
+                        this.informacion.setText(llamadoMasUrgente.toString());
+                        
+                        // Alinear texto a la izquierda
+                        StyledDocument doc = informacion.getStyledDocument();
+                        SimpleAttributeSet left = new SimpleAttributeSet();
+                        StyleConstants.setAlignment(left, StyleConstants.ALIGN_LEFT);
+                        doc.setParagraphAttributes(0, doc.getLength(), left, false);
+
+                        this.jButton2.setEnabled(true);
+                }
         }
 }

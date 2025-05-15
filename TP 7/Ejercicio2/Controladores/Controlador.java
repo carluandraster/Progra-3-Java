@@ -22,11 +22,25 @@ public class Controlador implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        String nombre;
+        int dni;
+        String domicilio;
+        int prioridad;
+        Socio socio;
+        Llamado llamado;
         String comando = e.getActionCommand();
         if (comando.equalsIgnoreCase(IVista.AGREGAR_LLAMADO)) {
-            
-        } else {
-            
+            nombre = this.vista.getNombre();
+            dni = this.vista.getDNI();
+            domicilio = this.vista.getDomicilio();
+            socio = new Socio(dni, nombre, domicilio);
+            prioridad = this.vista.getPrioridad();
+            llamado = new Llamado(prioridad, socio);
+            this.lista.agrega(llamado);
+            this.vista.actualizar(lista);
+        } else { // ATENDER_LLAMADO
+            this.lista.getElemento();
+            this.vista.actualizar(lista);
         }
     }
 
