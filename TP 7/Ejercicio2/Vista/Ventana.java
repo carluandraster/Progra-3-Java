@@ -26,7 +26,7 @@ public class Ventana extends javax.swing.JFrame implements IVista {
         private javax.swing.JTextField jTextField2;
         private javax.swing.JTextField jTextField3;
         private javax.swing.JTextField jTextField4;
-        private ActionListener actionListener;
+        // End of variables declaration
 
         /**
          * Creates new form Ventana
@@ -65,31 +65,16 @@ public class Ventana extends javax.swing.JFrame implements IVista {
                 jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
                 jTextField1.setText("Nombre");
-                jTextField1.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                jTextField1ActionPerformed(evt);
-                        }
-                });
 
                 jTextField2.setText("DNI");
 
                 jTextField3.setText("Domicilio");
 
                 jTextField4.setText("Grado de prioridad");
-                jTextField4.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                jTextField4ActionPerformed(evt);
-                        }
-                });
 
                 jButton1.setBackground(new java.awt.Color(0, 204, 0));
                 jButton1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
                 jButton1.setText("ENVIAR");
-                jButton1.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                jButton1ActionPerformed(evt);
-                        }
-                });
 
                 jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 48)); // NOI18N
                 jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -187,11 +172,6 @@ public class Ventana extends javax.swing.JFrame implements IVista {
                 jButton2.setBackground(new java.awt.Color(0, 204, 0));
                 jButton2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
                 jButton2.setText("ATENDER");
-                jButton2.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                jButton2ActionPerformed(evt);
-                        }
-                });
 
                 javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
                 jPanel2.setLayout(jPanel2Layout);
@@ -295,27 +275,32 @@ public class Ventana extends javax.swing.JFrame implements IVista {
                                                                 .addContainerGap(22, Short.MAX_VALUE)));
 
                 pack();
+
+                // Agregar comandos a los botones
+                this.jButton1.setActionCommand(AGREGAR_LLAMADO);
+                this.jButton2.setActionCommand(ATENDER_LLAMADO);
         }// </editor-fold>
 
-        private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
-                // TODO add your handling code here:
-        }
+        // private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
+        //         // TODO add your handling code here:
+        // }
 
-        private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {
-                // TODO add your handling code here:
-        }
+        // private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {
+        //         // TODO add your handling code here:
+        // }
 
-        private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-                // TODO add your handling code here:
-        }
+        // private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        //         // TODO add your handling code here:
+        // }
 
-        private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-                // TODO add your handling code here:
-        }
+        // private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
+        //         // TODO add your handling code here:
+        // }
 
-        // End of variables declaration
+        
         @Override
         public void setActionListener(ActionListener al) {
-                this.actionListener = al;
+                this.jButton1.addActionListener(al);
+                this.jButton2.addActionListener(al);
         }
 }
