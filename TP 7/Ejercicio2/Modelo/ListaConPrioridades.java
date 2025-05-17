@@ -9,19 +9,19 @@ public class ListaConPrioridades<T extends Comparable> {
         this.elementos = new PriorityQueue<>();
     }
 
-    public void agrega(T elemento){
+    public void agrega(T elemento) {
         this.elementos.add(elemento);
     }
 
-    public T consultaElemento(){
+    public T consultaElemento() {
         return this.elementos.peek();
     }
 
-    public int getCantidad(){
+    public int getCantidad() {
         return this.elementos.size();
     }
 
-    public T getElemento(){
+    public T getElemento() {
         return this.elementos.poll();
     }
 }

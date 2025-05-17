@@ -6,6 +6,6 @@ import Ejercicio2.Vista.*;
 
 public class Main {
     public static void main(String[] args) {
-        Controlador controlador=new Controlador(new ListaConPrioridades<>(), new Ventana());
+        new Controlador(new ListaConPrioridades<>(), new Ventana());
     }
 }
