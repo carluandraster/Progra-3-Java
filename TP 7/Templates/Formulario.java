@@ -1,6 +1,7 @@
 package Templates;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import javax.swing.JTextField;
@@ -9,7 +10,7 @@ import java.awt.event.FocusEvent;
 import java.awt.Color;
 
 public abstract class Formulario extends Menu {
-    protected ArrayList<String> inputs;
+    protected HashMap<String, JTextField> inputs;
 
     public Formulario() {
         super();
@@ -19,7 +20,7 @@ public abstract class Formulario extends Menu {
             ArrayList<String> comandos) {
         this.setearAtributos(titulo, nombresBotones, inputs);
 
-        this.configurarVentana(nombre, nombresBotones.size());
+        this.configurarVentana(nombre);
 
         this.configurarTitulo();
 
@@ -27,12 +28,22 @@ public abstract class Formulario extends Menu {
 
         this.agregarBotones(nombresBotones, comandos);
 
-        setVisible(true);
+        this.agregarBotonFinal(nombresBotones, comandos);
     }
 
     protected void setearAtributos(String titulo, ArrayList<String> nombresBotones, ArrayList<String> inputs) {
         super.setearAtributos(titulo, nombresBotones);
-        this.inputs = inputs;
+        this.inputs = this.copiarClavesInput(inputs);
+    }
+
+    protected HashMap<String, JTextField> copiarClavesInput(ArrayList<String> claves) {
+        Iterator<String> it = claves.iterator();
+        HashMap<String, JTextField> aux = new HashMap<>();
+
+        while (it.hasNext()) {
+            aux.put(it.next(), null);
+        }
+        return aux;
     }
 
     @Override
@@ -49,6 +60,7 @@ public abstract class Formulario extends Menu {
             tf.setText(aux);
             tf.setFont(new java.awt.Font("Segoe UI", 1, 48));
             this.add(tf);
+            this.inputs.replace(aux, tf);
 
             // Poner al input un placeholder
             tf.setForeground(Color.GRAY); // color del texto placeholder

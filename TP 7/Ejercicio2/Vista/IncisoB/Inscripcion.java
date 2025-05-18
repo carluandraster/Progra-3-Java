@@ -18,17 +18,17 @@ public class Inscripcion extends Formulario implements InterfazInscripcion {
 
     @Override
     public int getDNI() {
-        return Integer.parseInt(this.botones.get("DNI").getText());
+        return Integer.parseInt(this.inputs.get("DNI").getText());
     }
 
     @Override
     public String getDomicilio() {
-        return this.botones.get("Domicilio").getText();
+        return this.inputs.get("Domicilio").getText();
     }
 
     @Override
     public String getNombre() {
-        return this.botones.get("Nombre").getText();
+        return this.inputs.get("Nombre").getText();
     }
 
     @Override

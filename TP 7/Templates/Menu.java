@@ -22,10 +22,10 @@ public abstract class Menu extends JFrame {
                 // Atributos
                 this.setearAtributos(titulo, nombresBotones);
                 // Iniciar componentes
-                this.configurarVentana(nombre, nombresBotones.size());
+                this.configurarVentana(nombre);
                 this.configurarTitulo();
                 this.agregarBotones(nombresBotones, comandos);
-                setVisible(true);
+                this.agregarBotonFinal(nombresBotones, comandos);
         }
 
         protected void setearAtributos(String titulo, ArrayList<String> nombresBotones) {
@@ -43,7 +43,7 @@ public abstract class Menu extends JFrame {
                 return aux;
         }
 
-        protected void configurarVentana(String nombre, int cantidadBotones) {
+        protected void configurarVentana(String nombre) {
                 this.setTitle(nombre);
                 this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
                 this.setLayout(new GridLayout(this.getCantidadFilas(), 1));
@@ -68,6 +68,16 @@ public abstract class Menu extends JFrame {
                         this.add(boton);
                         this.botones.replace(nombresBotones.get(i), boton);
                 }
+        }
+
+        protected void agregarBotonFinal(ArrayList<String> nombresBotones, ArrayList<String> comandos) {
+                int i = nombresBotones.size() - 1;
+                JButton boton;
+                boton = new JButton(nombresBotones.get(i));
+                boton.setFont(new java.awt.Font("Segoe UI", 1, 48));
+                boton.setActionCommand(comandos.get(i));
+                this.add(boton);
+                this.botones.replace(nombresBotones.get(i), boton);
         }
 
         protected int getCantidadFilas() {

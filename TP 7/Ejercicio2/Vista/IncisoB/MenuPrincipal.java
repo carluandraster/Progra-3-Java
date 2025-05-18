@@ -14,6 +14,7 @@ public class MenuPrincipal extends Menu implements IMenu {
         super(nombre, "Menu principal", new ArrayList<>(
                 Arrays.asList("Inscribir un socio", "Registrar llamado", "Atender llamado", "Ver estadísticas")),
                 IMenu.comandos);
+        this.setVisible(true);
     }
 
     @Override
