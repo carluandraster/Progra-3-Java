@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.TreeSet;
 
 public class ConjuntoGenericoOrdenado<E extends Comparable<E>> implements IConjunto<E> {
-    private TreeSet<E> elementos;
+    protected TreeSet<E> elementos;
 
     public ConjuntoGenericoOrdenado() {
         this.elementos = new TreeSet<>();
