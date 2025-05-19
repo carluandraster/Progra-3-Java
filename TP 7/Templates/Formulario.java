@@ -52,10 +52,10 @@ public abstract class Formulario extends Menu {
     }
 
     protected void agregarInputs(ArrayList<String> inputs) {
-        JTextField tf = new JTextField();
         Iterator<String> it = inputs.iterator();
 
         while (it.hasNext()) {
+            JTextField tf = new JTextField();
             String aux = it.next();
             tf.setText(aux);
             tf.setFont(new java.awt.Font("Segoe UI", 1, 48));
