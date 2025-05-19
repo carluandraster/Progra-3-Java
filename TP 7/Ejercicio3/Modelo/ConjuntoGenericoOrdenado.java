@@ -6,6 +6,10 @@ import java.util.TreeSet;
 public class ConjuntoGenericoOrdenado<E extends Comparable<E>> implements IConjunto<E> {
     private TreeSet<E> elementos;
 
+    public ConjuntoGenericoOrdenado() {
+        this.elementos = new TreeSet<>();
+    }
+
     @Override
     public void agrega(E elemento) throws OperacionConjuntoInvalidaException {
         boolean aux = this.elementos.add(elemento);
@@ -32,4 +36,11 @@ public class ConjuntoGenericoOrdenado<E extends Comparable<E>> implements IConju
         return this.elementos.iterator();
     }
 
+    public E getMayor() {
+        return this.elementos.last();
+    }
+
+    public E getMenor() {
+        return this.elementos.first();
+    }
 }
