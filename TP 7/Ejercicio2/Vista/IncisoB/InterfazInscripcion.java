@@ -11,4 +11,6 @@ public interface InterfazInscripcion extends InterfazGrafica {
     public int getDNI();
 
     public String getDomicilio();
+
+    public void reset();
 }

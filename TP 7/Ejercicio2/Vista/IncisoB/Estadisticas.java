@@ -3,7 +3,7 @@ package Ejercicio2.Vista.IncisoB;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.swing.BorderFactory;
@@ -15,7 +15,8 @@ import javax.swing.JTextPane;
 import java.awt.*;
 
 import Ejercicio2.Modelo.Empresa;
-import Ejercicio2.Modelo.Socio;
+import Ejercicio2.Modelo.Llamado;
+import Ejercicio2.Modelo.OperadoraEmergencias;
 import Templates.Menu;
 
 public class Estadisticas extends Menu implements IEstadisticas {
@@ -81,14 +82,16 @@ public class Estadisticas extends Menu implements IEstadisticas {
 
     @Override
     public void hacerVisible() {
-        HashMap<Integer, Socio> socios = Empresa.getInstancia().getSocios();
-        this.dnis = socios.keySet().toArray(new Integer[MAX_ELEM]);
+        Empresa empresa =  Empresa.getInstancia();
+        OperadoraEmergencias opE = empresa.getOpE();
+        Iterator<Llamado> llamadosAtendidos = opE.getLlamadosAtendidos();
+        this.dnis = empresa.getSocios().keySet().toArray(new Integer[MAX_ELEM]);
         String mensaje = null;
-        if (socios.size() == 0) {
-            mensaje = "Hasta ahora no se registraron socios";
+        if (!llamadosAtendidos.hasNext()) {
+            mensaje = "Hasta ahora no se atendieron llamadas";
         } else {
             mensaje = "Socio al que se le han atendido más llamados: "
-                    + Empresa.getInstancia().getOpE().getSocioMasEmergencias();
+                    + opE.getSocioMasEmergencias();
         }
         this.socioMasEmergencias.setText(mensaje);
         this.setVisible(true);

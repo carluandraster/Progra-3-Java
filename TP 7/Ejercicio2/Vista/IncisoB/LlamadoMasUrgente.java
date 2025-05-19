@@ -60,4 +60,9 @@ public class LlamadoMasUrgente extends Menu implements ILlamadoMasUrgente {
     public void hacerInvisible() {
         this.setVisible(false);
     }
+
+    @Override
+    protected int getCantidadFilas() {
+        return super.getCantidadFilas()+1;
+    }
 }

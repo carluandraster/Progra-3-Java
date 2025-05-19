@@ -64,6 +64,7 @@ public class ControladorB implements ActionListener {
                             int dni = this.formularioInscripcion.getDNI();
                             String domicilio = this.formularioInscripcion.getDomicilio();
                             Empresa.getInstancia().agregarSocio(nombre, dni, domicilio);
+                            this.formularioInscripcion.reset();
                         } else {
                             // Volver al menú principal del formulario de inscripción
                             if (comando.equalsIgnoreCase(InterfazInscripcion.comandos.get(1))) {
