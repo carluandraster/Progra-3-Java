@@ -3,12 +3,12 @@ package Ejercicio2.Modelo;
 import java.text.SimpleDateFormat;
 import java.util.GregorianCalendar;
 
-public class Llamado implements Comparable<Llamado>{
+public class Llamado implements Comparable<Llamado> {
     private GregorianCalendar fechahoraAtendido;
     private GregorianCalendar fechahoraPedido;
     private int prioridad;
     private Socio socio;
-    
+
     public Llamado(int prioridad, Socio socio) {
         this.fechahoraAtendido = null;
         this.fechahoraPedido = new GregorianCalendar();
@@ -17,7 +17,8 @@ public class Llamado implements Comparable<Llamado>{
     }
 
     /**
-     * Compara tiempo de espera. A mayor prioridad, menor debe ser el tiempo de espera
+     * Compara tiempo de espera. A mayor prioridad, menor debe ser el tiempo de
+     * espera
      */
     @Override
     public int compareTo(Llamado o) {
@@ -60,10 +61,16 @@ public class Llamado implements Comparable<Llamado>{
     @Override
     public String toString() {
         SimpleDateFormat formato = new SimpleDateFormat("HH:mm:ss dd/MM/yyyy");
-        return "Nombre: " + this.socio.getNombre() + "\n" +
-        "DNI: " + this.socio.getDni() + "\n" +
-        "Domicilio: " + this.socio.getDomicilio() + "\n" +
-        "Grado de prioridad: " + this.prioridad + "\n" +
-        "Fecha y hora pedido: " + formato.format(this.fechahoraPedido.getTime());
+        String aux = "Nombre: " + this.socio.getNombre() + "\n" +
+                "DNI: " + this.socio.getDni() + "\n" +
+                "Domicilio: " + this.socio.getDomicilio() + "\n" +
+                "Grado de prioridad: " + this.prioridad + "\n" +
+                "Fecha y hora pedido: " + formato.format(this.fechahoraPedido.getTime());
+
+        if (this.fechahoraAtendido != null) {
+            aux += "\nFecha y hora atendido: " + formato.format(this.fechahoraAtendido.getTime());
+        }
+
+        return aux;
     }
 }

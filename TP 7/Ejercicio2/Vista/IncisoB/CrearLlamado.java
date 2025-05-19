@@ -38,8 +38,12 @@ public class CrearLlamado extends FormularioConComboBox implements ICrearLlamado
 
     @Override
     public void hacerVisible() {
-        this.setVisible(true);
         this.dnis = (Integer[]) Empresa.getInstancia().getSocios().keySet().toArray();
+        this.setVisible(true);
     }
 
+    @Override
+    public void hacerInvisible() {
+        this.setVisible(false);
+    }
 }

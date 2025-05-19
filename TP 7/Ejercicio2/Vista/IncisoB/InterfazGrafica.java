@@ -6,4 +6,6 @@ public interface InterfazGrafica {
     public void setActionListener(ActionListener al);
 
     public void hacerVisible();
+
+    public void hacerInvisible();
 }

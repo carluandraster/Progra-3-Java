@@ -24,4 +24,13 @@ public class MenuPrincipal extends Menu implements IMenu {
         }
     }
 
+    @Override
+    public void hacerVisible() {
+        this.setVisible(true);
+    }
+
+    @Override
+    public void hacerInvisible() {
+        this.setVisible(false);
+    }
 }

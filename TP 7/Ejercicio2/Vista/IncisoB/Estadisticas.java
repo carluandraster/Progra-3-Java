@@ -6,17 +6,25 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JTextPane;
+import java.awt.*;
 
 import Ejercicio2.Modelo.Empresa;
 import Ejercicio2.Modelo.Socio;
 import Templates.Menu;
 
 public class Estadisticas extends Menu implements IEstadisticas {
-    private FormularioConComboBox barraBusqueda;
+    private JPanel barraBusqueda;
+    private JComboBox<Integer> comboSocios;
+    private JButton botonBuscar;
     private JTextPane socioMasEmergencias;
     private Integer[] dnis;
+    static final int MAX_ELEM = 50;
 
     public Estadisticas(String arg0) {
         ArrayList<String> nombresBotones = new ArrayList<>(
@@ -24,7 +32,7 @@ public class Estadisticas extends Menu implements IEstadisticas {
         this.setearAtributos(arg0, nombresBotones);
         this.configurarVentana("Estadisticas");
         this.configurarTitulo();
-        this.add(this.barraBusqueda);
+        this.configurarPanel();
         this.agregarBotones(nombresBotones, comandos);
         this.add(this.socioMasEmergencias);
         this.agregarBotonFinal(nombresBotones, nombresBotones);
@@ -38,15 +46,30 @@ public class Estadisticas extends Menu implements IEstadisticas {
     @Override
     protected void setearAtributos(String titulo, ArrayList<String> nombresBotones) {
         super.setearAtributos(titulo, nombresBotones);
-        this.barraBusqueda = new FormularioConComboBox("", "Buscar socio por DNI", new ArrayList<String>(),
-                new ArrayList<>(Arrays.asList("Buscar")), new ArrayList<>(Arrays.asList(IEstadisticas.BUSCAR)),
-                this.dnis, "Ingrese un DNI");
+        this.barraBusqueda = new JPanel(new GridLayout(2, 2, 10, 10));
+        this.comboSocios = new JComboBox<>(this.dnis);
+        this.botonBuscar = new JButton("Buscar");
         this.socioMasEmergencias = new JTextPane();
+    }
+
+    public void configurarPanel() {
+        this.barraBusqueda.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        // Elementos
+        JLabel label = new JLabel("Buscar socio por DNI");
+
+        // Agregar componentes en orden 2x2
+        this.barraBusqueda.add(label); // fila 1, columna 1
+        this.barraBusqueda.add(this.botonBuscar); // fila 1, columna 2
+        this.barraBusqueda.add(this.comboSocios); // fila 2, columna 1
+        this.barraBusqueda.add(new JLabel()); // fila 2, columna 2 (vacío)
+
+        add(this.barraBusqueda);
     }
 
     @Override
     public int getDNI() {
-        return (Integer) this.barraBusqueda.getComboBox().getSelectedItem();
+        return (Integer) this.comboSocios.getSelectedItem();
     }
 
     @Override
@@ -71,4 +94,8 @@ public class Estadisticas extends Menu implements IEstadisticas {
         this.setVisible(true);
     }
 
+    @Override
+    public void hacerInvisible() {
+        this.setVisible(false);
+    }
 }

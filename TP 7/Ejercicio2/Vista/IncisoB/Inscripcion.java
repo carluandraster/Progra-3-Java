@@ -38,4 +38,13 @@ public class Inscripcion extends Formulario implements InterfazInscripcion {
         }
     }
 
+    @Override
+    public void hacerVisible() {
+        this.setVisible(true);
+    }
+
+    @Override
+    public void hacerInvisible() {
+        this.setVisible(false);
+    }
 }
