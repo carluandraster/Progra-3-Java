@@ -7,7 +7,7 @@ import javax.swing.JComboBox;
 import Templates.Formulario;
 
 public class FormularioConComboBox extends Formulario {
-    private Integer[] opciones;
+    protected Integer[] opciones;
     private JComboBox<Integer> comboBox;
 
     public FormularioConComboBox(String nombre, String titulo, ArrayList<String> inputs,
@@ -25,6 +25,7 @@ public class FormularioConComboBox extends Formulario {
         this.agregarInputs(inputs);
 
         this.agregarBotones(nombresBotones, comandos);
+        this.agregarBotonFinal(nombresBotones, comandos);
     }
 
     protected void setearAtributos(String titulo, ArrayList<String> nombresBotones, ArrayList<String> inputs,

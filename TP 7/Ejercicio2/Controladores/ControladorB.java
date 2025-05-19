@@ -26,10 +26,15 @@ public class ControladorB implements ActionListener {
     public void setVistas(IMenu menuPrincipal, InterfazInscripcion formularioInscripcion,
             ILlamadoMasUrgente llamadoMasUrgente, ICrearLlamado crearLlamado, IEstadisticas estadisticas) {
         this.menuPrincipal = menuPrincipal;
+        this.menuPrincipal.setActionListener(this);
         this.formularioInscripcion = formularioInscripcion;
+        this.formularioInscripcion.setActionListener(this);
         this.llamadoMasUrgente = llamadoMasUrgente;
+        this.llamadoMasUrgente.setActionListener(this);
         this.crearLlamado = crearLlamado;
+        this.crearLlamado.setActionListener(this);
         this.estadisticas = estadisticas;
+        this.estadisticas.setActionListener(this);
     }
 
     @Override

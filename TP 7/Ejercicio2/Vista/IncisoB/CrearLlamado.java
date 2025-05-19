@@ -13,6 +13,7 @@ import Ejercicio2.Modelo.Empresa;
 public class CrearLlamado extends FormularioConComboBox implements ICrearLlamado {
     private Integer[] dnis;
     private JComboBox<Integer> dniSocio;
+    private static int MAX_ELEM = 100;
 
     public CrearLlamado(String arg0, Integer[] dnis) {
         super(arg0, "Crear llamado", new ArrayList<>(Arrays.asList("Grado de prioridad")),
@@ -38,7 +39,7 @@ public class CrearLlamado extends FormularioConComboBox implements ICrearLlamado
 
     @Override
     public void hacerVisible() {
-        this.dnis = (Integer[]) Empresa.getInstancia().getSocios().keySet().toArray();
+        this.dnis = Empresa.getInstancia().getSocios().keySet().toArray(new Integer[MAX_ELEM]);
         this.setVisible(true);
     }
 

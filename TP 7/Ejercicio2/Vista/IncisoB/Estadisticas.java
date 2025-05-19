@@ -29,8 +29,8 @@ public class Estadisticas extends Menu implements IEstadisticas {
     public Estadisticas(String arg0) {
         ArrayList<String> nombresBotones = new ArrayList<>(
                 Arrays.asList("Obtener listado de llamados atendidos", "Volver al menú principal"));
-        this.setearAtributos(arg0, nombresBotones);
-        this.configurarVentana("Estadisticas");
+        this.setearAtributos("Estadisticas", nombresBotones);
+        this.configurarVentana(arg0);
         this.configurarTitulo();
         this.configurarPanel();
         this.agregarBotones(nombresBotones, comandos);
@@ -82,7 +82,7 @@ public class Estadisticas extends Menu implements IEstadisticas {
     @Override
     public void hacerVisible() {
         HashMap<Integer, Socio> socios = Empresa.getInstancia().getSocios();
-        this.dnis = (Integer[]) socios.keySet().toArray();
+        this.dnis = socios.keySet().toArray(new Integer[MAX_ELEM]);
         String mensaje = null;
         if (socios.size() == 0) {
             mensaje = "Hasta ahora no se registraron socios";
