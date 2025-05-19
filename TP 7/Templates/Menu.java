@@ -61,7 +61,7 @@ public abstract class Menu extends JFrame {
                 int i;
                 JButton boton;
 
-                for (i = 0; i < nombresBotones.size(); i++) {
+                for (i = 0; i < nombresBotones.size() - 1; i++) {
                         boton = new JButton(nombresBotones.get(i));
                         boton.setFont(new java.awt.Font("Segoe UI", 1, 48));
                         boton.setActionCommand(comandos.get(i));

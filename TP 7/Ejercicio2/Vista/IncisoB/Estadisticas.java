@@ -47,7 +47,7 @@ public class Estadisticas extends Menu implements IEstadisticas {
     protected void setearAtributos(String titulo, ArrayList<String> nombresBotones) {
         super.setearAtributos(titulo, nombresBotones);
         this.barraBusqueda = new JPanel(new GridLayout(2, 2, 10, 10));
-        this.comboSocios = new JComboBox<>(this.dnis);
+        this.comboSocios = new JComboBox<>(new Integer[MAX_ELEM]);
         this.botonBuscar = new JButton("Buscar");
         this.socioMasEmergencias = new JTextPane();
     }
