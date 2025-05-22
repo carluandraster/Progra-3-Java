@@ -1,19 +1,23 @@
 package Ejercicio04.Modelo;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Empresa {
-    private String nombre;
+    private static Empresa _instancia = null;
     private ArrayList<Empleado> personal = new ArrayList<>();
     private ArrayList<Pedido> pedidos = new ArrayList<>();
-    private ArrayList<Producto> productos = new ArrayList<>();
+    private HashMap<String, Producto> productos = new HashMap<>();
 
-    public Empresa(String nombre) {
-        this.nombre = nombre;
+    private Empresa() {
+        super();
     }
 
-    public String getNombre() {
-        return nombre;
+    public static Empresa get_instancia() {
+        if (_instancia == null) {
+            _instancia = new Empresa();
+        }
+        return _instancia;
     }
 
     public void agregarEmpleado(Empleado empleado) {
@@ -41,14 +45,14 @@ public class Empresa {
     }
 
     public void agregarProducto(Producto producto) {
-        this.productos.add(producto);
+        this.productos.put(producto.getDescripcion(), producto);
     }
 
     public void quitarProducto(Producto producto) {
-        this.productos.remove(producto);
+        this.productos.remove(producto.getDescripcion());
     }
 
-    public ArrayList<Producto> getProductos() {
+    public HashMap<String, Producto> getProductos() {
         return productos;
     }
 }
