@@ -14,4 +14,6 @@ public interface IFormulario {
     public String getDireccion();
 
     public void setActionListener(ActionListener al);
+
+    public void reset();
 }

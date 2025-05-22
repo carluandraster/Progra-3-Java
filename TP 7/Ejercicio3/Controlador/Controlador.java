@@ -16,6 +16,7 @@ public class Controlador implements ActionListener {
     private IFormulario formulario;
 
     public Controlador(IFormulario formulario) {
+        this.baseDeDatos = new ConjuntoGenerico<>();
         this.formulario = formulario;
         this.setVista(formulario);
     }
@@ -39,6 +40,7 @@ public class Controlador implements ActionListener {
             } catch (OperacionConjuntoInvalidaException e) {
                 JOptionPane.showMessageDialog(null, e.getMessage(), "OperacionConjuntoInvalidaException", JOptionPane.ERROR_MESSAGE);
             }
+            this.formulario.reset();
         } else { // Consultar
             Iterator<Persona> it = this.baseDeDatos.getIterator();
             StringBuilder sb = new StringBuilder();
