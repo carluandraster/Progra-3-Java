@@ -2,6 +2,7 @@ package Ejercicio2.Controladores;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.util.Iterator;
 
 import javax.swing.JOptionPane;
@@ -48,6 +49,8 @@ public class ControladorB implements ActionListener {
         } else {
             if (comando.equalsIgnoreCase(IMenu.comandos.get(1))) { // registrar
                 this.menuPrincipal.hacerInvisible();
+                HashMap<Integer,Socio> socios = Empresa.getInstancia().getSocios();
+                this.crearLlamado.actualizar(socios.keySet().toArray(new Integer[socios.size()]));
                 this.crearLlamado.hacerVisible();
             } else {
                 if (comando.equalsIgnoreCase(IMenu.comandos.get(2))) { // atender
@@ -56,6 +59,8 @@ public class ControladorB implements ActionListener {
                 } else {
                     if (comando.equalsIgnoreCase(IMenu.comandos.get(3))) { // estadísticas
                         this.menuPrincipal.hacerInvisible();
+                        HashMap<Integer,Socio> socios = Empresa.getInstancia().getSocios();
+                        this.estadisticas.actualizar(socios.keySet().toArray(new Integer[socios.size()]));
                         this.estadisticas.hacerVisible();
                     } else {
                         // Opciones del formulario de inscripción
@@ -112,8 +117,8 @@ public class ControladorB implements ActionListener {
                                                         Iterator<Llamado> it = Empresa.getInstancia().getOpE()
                                                                 .getLlamadosAtendidos();
                                                         while (it.hasNext()) {
-                                                            sb.append("-------------------------");
-                                                            sb.append(it.next().toString());
+                                                            sb.append("-------------------------\n");
+                                                            sb.append(it.next().toString() + "\n");
                                                         }
                                                         JOptionPane.showMessageDialog(null, sb.toString(),
                                                                 "Listado de llamados atendidos",

@@ -9,4 +9,6 @@ public interface ICrearLlamado extends InterfazGrafica {
     public int getDNI();
 
     public int getPrioridad();
+
+    public void actualizar(Integer[] dnis);
 }

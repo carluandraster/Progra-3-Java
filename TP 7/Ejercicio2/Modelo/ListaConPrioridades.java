@@ -2,7 +2,7 @@ package Ejercicio2.Modelo;
 
 import java.util.PriorityQueue;
 
-public class ListaConPrioridades<T extends Comparable> {
+public class ListaConPrioridades<T extends Comparable<T>> {
     protected PriorityQueue<T> elementos;
 
     public ListaConPrioridades() {

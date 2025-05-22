@@ -9,4 +9,6 @@ public interface IEstadisticas extends InterfazGrafica {
             Arrays.asList("obtener listado", "volverDeEstadisticas"));
 
     public int getDNI();
+
+    public void actualizar(Integer[] array);
 }

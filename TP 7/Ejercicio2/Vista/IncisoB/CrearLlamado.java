@@ -6,23 +6,16 @@ import java.util.Arrays;
 import java.util.Map;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
-
-import Ejercicio2.Modelo.Empresa;
 
 public class CrearLlamado extends FormularioConComboBox implements ICrearLlamado {
-    private Integer[] dnis;
-    private JComboBox<Integer> dniSocio;
-    private static int MAX_ELEM = 100;
-
-    public CrearLlamado(String arg0, Integer[] dnis) {
+    public CrearLlamado(String arg0) {
         super(arg0, "Crear llamado", new ArrayList<>(Arrays.asList("Grado de prioridad")),
-                new ArrayList<>(Arrays.asList("ENVIAR", "Volver al Menú Principal")), comandos, dnis, "DNI Socio");
+                new ArrayList<>(Arrays.asList("ENVIAR", "Volver al Menú Principal")), comandos, new Integer[0], "DNI Socio");
     }
 
     @Override
     public int getDNI() {
-        return (Integer) this.dniSocio.getSelectedItem();
+        return (Integer) this.comboBox.getSelectedItem();
     }
 
     @Override
@@ -39,8 +32,6 @@ public class CrearLlamado extends FormularioConComboBox implements ICrearLlamado
 
     @Override
     public void hacerVisible() {
-        this.dnis = Empresa.getInstancia().getSocios().keySet().toArray(new Integer[MAX_ELEM]);
-        // System.out.println(this.dnis);
         this.setVisible(true);
     }
 
@@ -48,4 +39,15 @@ public class CrearLlamado extends FormularioConComboBox implements ICrearLlamado
     public void hacerInvisible() {
         this.setVisible(false);
     }
+
+    @Override
+    public void actualizar(Integer[] dnis) {
+        int i;
+        this.comboModel.removeAllElements();
+        for (i = 0; i < dnis.length; i++) {
+            this.comboModel.addElement(dnis[i]);
+        }
+    }
+
+    
 }

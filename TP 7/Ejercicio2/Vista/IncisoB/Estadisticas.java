@@ -7,6 +7,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 import javax.swing.BorderFactory;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -22,10 +23,9 @@ import Templates.Menu;
 public class Estadisticas extends Menu implements IEstadisticas {
     private JPanel barraBusqueda;
     private JComboBox<Integer> comboSocios;
+    private DefaultComboBoxModel<Integer> comboModel=new DefaultComboBoxModel<Integer>();
     private JButton botonBuscar;
     private JTextPane socioMasEmergencias;
-    private Integer[] dnis;
-    static final int MAX_ELEM = 50;
 
     public Estadisticas(String arg0) {
         ArrayList<String> nombresBotones = new ArrayList<>(
@@ -37,6 +37,7 @@ public class Estadisticas extends Menu implements IEstadisticas {
         this.agregarBotones(nombresBotones, comandos);
         this.add(this.socioMasEmergencias);
         this.agregarBotonFinal(nombresBotones, nombresBotones);
+        this.comboSocios.setModel(this.comboModel);
     }
 
     @Override
@@ -48,7 +49,7 @@ public class Estadisticas extends Menu implements IEstadisticas {
     protected void setearAtributos(String titulo, ArrayList<String> nombresBotones) {
         super.setearAtributos(titulo, nombresBotones);
         this.barraBusqueda = new JPanel(new GridLayout(2, 2, 10, 10));
-        this.comboSocios = new JComboBox<>(new Integer[MAX_ELEM]);
+        this.comboSocios = new JComboBox<>();
         this.botonBuscar = new JButton("Buscar");
         this.socioMasEmergencias = new JTextPane();
     }
@@ -78,14 +79,26 @@ public class Estadisticas extends Menu implements IEstadisticas {
         for (Map.Entry<String, JButton> entrada : this.botones.entrySet()) {
             entrada.getValue().addActionListener(al);
         }
+        this.botonBuscar.addActionListener(al);
     }
 
     @Override
     public void hacerVisible() {
+        
+        this.setVisible(true);
+    }
+
+    @Override
+    public void hacerInvisible() {
+        this.setVisible(false);
+    }
+
+    @Override
+    public void actualizar(Integer[] array) {
+        int i;
         Empresa empresa =  Empresa.getInstancia();
         OperadoraEmergencias opE = empresa.getOpE();
         Iterator<Llamado> llamadosAtendidos = opE.getLlamadosAtendidos();
-        this.dnis = empresa.getSocios().keySet().toArray(new Integer[MAX_ELEM]);
         String mensaje = null;
         if (!llamadosAtendidos.hasNext()) {
             mensaje = "Hasta ahora no se atendieron llamadas";
@@ -94,11 +107,10 @@ public class Estadisticas extends Menu implements IEstadisticas {
                     + opE.getSocioMasEmergencias();
         }
         this.socioMasEmergencias.setText(mensaje);
-        this.setVisible(true);
-    }
-
-    @Override
-    public void hacerInvisible() {
-        this.setVisible(false);
+        
+        this.comboModel.removeAllElements();
+        for (i = 0; i < array.length; i++) {
+            this.comboModel.addElement(array[i]);
+        }
     }
 }

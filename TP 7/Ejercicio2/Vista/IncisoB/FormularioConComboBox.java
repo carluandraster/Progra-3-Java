@@ -2,13 +2,15 @@ package Ejercicio2.Vista.IncisoB;
 
 import java.util.ArrayList;
 
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 
 import Templates.Formulario;
 
 public class FormularioConComboBox extends Formulario {
     protected Integer[] opciones;
-    private JComboBox<Integer> comboBox;
+    protected JComboBox<Integer> comboBox;
+    protected DefaultComboBoxModel<Integer> comboModel=new DefaultComboBoxModel<Integer> ();
 
     public FormularioConComboBox(String nombre, String titulo, ArrayList<String> inputs,
             ArrayList<String> nombresBotones,
@@ -26,6 +28,8 @@ public class FormularioConComboBox extends Formulario {
 
         this.agregarBotones(nombresBotones, comandos);
         this.agregarBotonFinal(nombresBotones, comandos);
+        
+        this.comboBox.setModel(this.comboModel);
     }
 
     protected void setearAtributos(String titulo, ArrayList<String> nombresBotones, ArrayList<String> inputs,
