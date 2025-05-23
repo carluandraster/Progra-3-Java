@@ -60,7 +60,7 @@ public class Pedido extends ConjuntoGenericoOrdenado<LineaDePedido> {
             sb.append("\n" + aux);
             precioTotal += aux.getCantidad() * aux.getProducto().getPrecioUnitario();
         }
-        sb.append("\n\t\t\t\t\t\t\tTTOTAL: " + Math.round(precioTotal * 100) / 100.0);
+        sb.append("\n\t\t\t\t\t\t\tTOTAL: $" + Math.round(precioTotal * 100) / 100.0);
         return sb.toString();
     }
 }

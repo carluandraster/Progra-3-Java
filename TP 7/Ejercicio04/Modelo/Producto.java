@@ -62,7 +62,7 @@ public class Producto {
 
     @Override
     public String toString() {
-        return descripcion + "\t$" + Math.round(precioUnitario * 100) / 100.0;
+        return descripcion + " \t $" + Math.round(precioUnitario * 100) / 100.0;
     }
 
 }

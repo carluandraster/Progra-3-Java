@@ -61,7 +61,8 @@ public class LineaDePedido implements Comparable<LineaDePedido> {
 
     @Override
     public String toString() {
-        return cantidad + "\t" + producto + "\t$" + Math.round(cantidad * producto.getPrecioUnitario() * 100) / 100.0;
+        return cantidad + " \t " + producto + " \t $"
+                + Math.round(cantidad * producto.getPrecioUnitario() * 100) / 100.0;
     }
 
 }
