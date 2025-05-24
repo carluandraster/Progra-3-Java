@@ -26,4 +26,6 @@ public interface IVista {
     public void actualizar(Personaje personajes[]);
 
     public void setActionListener(ActionListener al);
+
+    public void escribirConsola(String texto);
 }

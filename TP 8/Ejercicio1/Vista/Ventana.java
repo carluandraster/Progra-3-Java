@@ -2,6 +2,7 @@ package Ejercicio1.Vista;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 import java.awt.BorderLayout;
 import javax.swing.JList;
@@ -22,7 +23,6 @@ public class Ventana extends JFrame implements IVista {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPanel panelCentral;
-	private JPanel panelSur;
 	private JPanel panelEste;
 	private JPanel panelAtacar;
 	private JList<Personaje> listaIzquierda;
@@ -50,6 +50,7 @@ public class Ventana extends JFrame implements IVista {
 	private JPanel panel_3;
 	private JPanel MagoPanel;
 	private JButton botonMago;
+	private JTextArea consola;
 	private DefaultListModel<Personaje> listaDePersonajes;
 
 	/**
@@ -80,8 +81,9 @@ public class Ventana extends JFrame implements IVista {
 		this.listaDerecha = new JList<Personaje>();
 		this.panelCentral.add(this.listaDerecha);
 
-		this.panelSur = new JPanel();
-		this.contentPane.add(this.panelSur, BorderLayout.SOUTH);
+		this.consola = new JTextArea();
+		this.consola.setEditable(false);
+		this.contentPane.add(this.consola, BorderLayout.SOUTH);
 
 		this.panelEste = new JPanel();
 		this.contentPane.add(this.panelEste, BorderLayout.EAST);
@@ -224,5 +226,11 @@ public class Ventana extends JFrame implements IVista {
 		this.botonGuerrero.addActionListener(al);
 		this.botonMover.addActionListener(al);
 		this.BotonArquero.addActionListener(al);
+		this.botonMago.addActionListener(al);
+	}
+
+	@Override
+	public void escribirConsola(String texto) {
+		this.consola.setText(texto);
 	}
 }

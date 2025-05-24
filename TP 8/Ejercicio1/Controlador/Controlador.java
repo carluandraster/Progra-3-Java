@@ -40,6 +40,14 @@ public class Controlador implements ActionListener {
                 } else {
                     try {
                         atacante.ataca(atacado);
+                        int vitalidad = atacado.getVitalidad();
+                        if (vitalidad == 0) {
+                            this.vista.escribirConsola(atacante.getNombre() + " asesinó a " + atacado.getNombre());
+                        } else {
+                            this.vista.escribirConsola(atacante.getNombre() + " atacó a " + atacado.getNombre()
+                                    + " dejándolo con " + vitalidad + " de vida.");
+                        }
+
                     } catch (AtaqueImposibleException e1) {
                         JOptionPane.showMessageDialog(null, e1.getMessage(),
                                 "AtaqueImposibleException", JOptionPane.ERROR_MESSAGE);
@@ -56,6 +64,7 @@ public class Controlador implements ActionListener {
                     Mapa.get_instancia().agregarPersonaje(new Arquero(nombre));
                     HashMap<String, Personaje> personajes = Mapa.get_instancia().getPersonajes();
                     this.vista.actualizar(personajes.values().toArray(new Personaje[personajes.size()]));
+                    this.vista.escribirConsola("Arquero creado con éxito");
                 }
             } else {
                 if (comando.equalsIgnoreCase(IVista.CREAR_GUERRERO)) {
@@ -65,6 +74,9 @@ public class Controlador implements ActionListener {
                                 "Dato Inválido", JOptionPane.ERROR_MESSAGE);
                     } else {
                         Mapa.get_instancia().agregarPersonaje(new Guerrero(nombre));
+                        HashMap<String, Personaje> personajes = Mapa.get_instancia().getPersonajes();
+                        this.vista.actualizar(personajes.values().toArray(new Personaje[personajes.size()]));
+                        this.vista.escribirConsola("Guerrero creado con éxito");
                     }
                 } else {
                     if (comando.equalsIgnoreCase(IVista.CREAR_CABALLERO)) {
@@ -74,6 +86,9 @@ public class Controlador implements ActionListener {
                                     "Dato Inválido", JOptionPane.ERROR_MESSAGE);
                         } else {
                             Mapa.get_instancia().agregarPersonaje(new Caballero(nombre));
+                            HashMap<String, Personaje> personajes = Mapa.get_instancia().getPersonajes();
+                            this.vista.actualizar(personajes.values().toArray(new Personaje[personajes.size()]));
+                            this.vista.escribirConsola("Caballero creado con éxito");
                         }
                     } else {
                         if (comando.equalsIgnoreCase(IVista.CREAR_MAGO)) {
@@ -83,6 +98,9 @@ public class Controlador implements ActionListener {
                                         "Dato Inválido", JOptionPane.ERROR_MESSAGE);
                             } else {
                                 Mapa.get_instancia().agregarPersonaje(new Mago(nombre));
+                                HashMap<String, Personaje> personajes = Mapa.get_instancia().getPersonajes();
+                                this.vista.actualizar(personajes.values().toArray(new Personaje[personajes.size()]));
+                                this.vista.escribirConsola("Mago creado con éxito");
                             }
                         } else { // Mover
                             try {
@@ -97,6 +115,8 @@ public class Controlador implements ActionListener {
                                             "Dato Inválido", JOptionPane.ERROR_MESSAGE);
                                 } else {
                                     p.incrementaPos(incX, incY);
+                                    this.vista.escribirConsola(
+                                            p.getNombre() + " se movió a (" + p.getPosx() + ", " + p.getPosy() + ")");
                                 }
                             } catch (NumberFormatException e2) {
                                 JOptionPane.showMessageDialog(null, "Un dato ingresado no corresponde con un número",

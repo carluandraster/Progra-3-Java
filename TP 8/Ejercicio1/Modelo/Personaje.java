@@ -18,6 +18,10 @@ public abstract class Personaje implements Movible, Comparable<Personaje>, Clone
         return nombre;
     }
 
+    public int getVitalidad() {
+        return vitalidad;
+    }
+
     public void ataca(Personaje personaje) throws AtaqueImposibleException {
         if (this.validarDistancia(personaje.posicion)) {
             this.daniar(personaje);
