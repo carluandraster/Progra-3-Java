@@ -3,10 +3,18 @@ package Ejercicio1.Modelo;
 import java.util.HashMap;
 
 public class Mapa implements Cloneable {
+    private static Mapa _instancia;
     HashMap<String, Personaje> personajes;
 
-    public Mapa() {
+    private Mapa() {
         this.personajes = new HashMap<>();
+    }
+
+    public static Mapa get_instancia() {
+        if (_instancia == null) {
+            _instancia = new Mapa();
+        }
+        return _instancia;
     }
 
     public HashMap<String, Personaje> getPersonajes() {

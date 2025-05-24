@@ -102,4 +102,11 @@ public abstract class Personaje implements Movible, Comparable<Personaje>, Clone
             throw new InternalError(e.toString());
         }
     }
+
+    @Override
+    public String toString() {
+        return "Personaje [nombre=" + nombre + ", vitalidad=" + vitalidad + ", posicion=" + posicion + ", alcance="
+                + alcance + ", danio=" + danio + ", distanciaMaximaDeDeplazamiento=" + distanciaMaximaDeDeplazamiento
+                + "]";
+    }
 }
