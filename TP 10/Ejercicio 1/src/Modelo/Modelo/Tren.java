@@ -4,15 +4,15 @@ import Modelo.Monitores.*;
 
 public class Tren extends Thread{
     private String name;
-    private MonitorCaso3 recursoCompartido;
+    private MonitorCaso4 recursoCompartido;
     private boolean sentido;
 
-    public Tren(String name, MonitorCaso3 recursoCompartido) {
+    public Tren(String name, MonitorCaso4 recursoCompartido) {
         this.name = name;
         this.recursoCompartido = recursoCompartido;
     }
 
-    public Tren(String name, MonitorCaso3 recursoCompartido, boolean sentido){
+    public Tren(String name, MonitorCaso4 recursoCompartido, boolean sentido){
         this(name,recursoCompartido);
         this.sentido = sentido;
     }

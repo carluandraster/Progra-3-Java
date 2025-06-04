@@ -16,15 +16,17 @@ public class MonitorCaso4 {
          * - el sentido true implique que nadie esté esperando desde el lado false y
          * - el sentido false implique que nadie esté esperando desde el lado true
          */
-        while (this.sentido != sentido || this.sentido && this.esperandoF || !this.sentido && this.esperandoT) {
+        while (this.sentido != sentido || sentido && this.esperandoF || !sentido && this.esperandoT) {
             try {
                 System.out.println(nombreTren + " espera a que se libere la vía.");
-                if (this.sentido) {
+                if (sentido) {
                     this.esperandoT = true;
                 } else {
                     this.esperandoF = true;
                 }
                 wait(); // se bloquea hasta que la vía esté libre
+                this.esperandoT = false;
+                this.esperandoF = false;
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }

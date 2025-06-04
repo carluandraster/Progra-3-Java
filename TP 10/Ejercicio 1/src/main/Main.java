@@ -3,7 +3,7 @@ import Modelo.Monitores.*;
 
 public class Main {
     public static void main(String[] args) {
-        MonitorCaso3 monitor = new MonitorCaso3();
+        MonitorCaso4 monitor = new MonitorCaso4();
 
         new Tren("Tren A", monitor, false).start();
         new Tren("Tren B", monitor, true).start();
