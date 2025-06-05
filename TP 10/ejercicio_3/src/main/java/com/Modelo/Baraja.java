@@ -29,8 +29,15 @@ public class Baraja {
                 nuevaCarta = cartas.get(nroCarta);
             } while (nuevaCarta.getApariciones() == 0);
             this.cartas.push(nuevaCarta);
+            nuevaCarta.decrementarApariciones();
         }
     }
 
-    
+    public Carta sacarCarta(){
+        return this.cartas.pop();
+    }
+
+    public boolean esVacia(){
+        return this.cartas.empty();
+    }
 }
