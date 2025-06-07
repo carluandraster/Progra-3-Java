@@ -8,7 +8,7 @@ public class Main {
         SocioFactory sf = new SocioFactory(biblioteca);
         Socio s1 = sf.crearSocio("Andrés Efstratiadis");
         Socio s2 = sf.crearSocio("Carlos Alejandro");
-        Socio s3 = sf.crearSocio("Valentín Chiola");
+        Socio s3 = sf.crearSocio("Valentino Chiola");
         Socio s4 = sf.crearSocio("Fausto Finocchio");
         Socio s5 = sf.crearSocio("Valentín Verdi");
         Socio s6 = sf.crearSocio("Lucía Ochoa");

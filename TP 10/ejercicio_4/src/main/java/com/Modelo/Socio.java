@@ -12,8 +12,8 @@ public class Socio extends Thread {
     public void run() {
         int N = (int) Math.round(Math.random() * 10);
         for (int i = 0; i < N; i++) {
-            int id = (int) Math.round(Math.random() * 5);
-            this.biblioteca.prestar(this.getName(), id);
+            int id = (int) Math.round(Math.random() * 4);
+            Libro libro = this.biblioteca.prestar(this.getName(), id);
             System.out.println(this.getName() + " obtuvo su libro");
             try {
                 Thread.sleep(2000);
@@ -21,7 +21,9 @@ public class Socio extends Thread {
                 // TODO Auto-generated catch block
                 e.printStackTrace();
             }
-            this.biblioteca.recibirDevolucion(this.getName(), id);
+            // this.biblioteca.recibirDevolucion(this.getName(), id);
+            libro.bajar();
+            System.out.println(this.getName() + " devolvió " + libro.getTitulo());
         }
     }
 }
