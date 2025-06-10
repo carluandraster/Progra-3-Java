@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="17.0.15" class="java.beans.XMLDecoder">
+ <object class="codigo.Modelo.Flota" id="Flota0">
+  <void property="nombre">
+   <string>Mi flotita</string>
+  </void>
+  <void property="vehiculos">
+   <void method="add">
+    <object class="codigo.Modelo.Vehiculo">
+     <void property="anio_fabricacion">
+      <int>2017</int>
+     </void>
+     <void property="n_Chasis">
+      <string>DHUWHDW8UWA000237</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="codigo.Modelo.Vehiculo">
+     <void property="anio_fabricacion">
+      <int>2013</int>
+     </void>
+     <void property="n_Chasis">
+      <string>SGRSGRGEHNA136214</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="codigo.Modelo.Vehiculo">
+     <void property="anio_fabricacion">
+      <int>2020</int>
+     </void>
+     <void property="n_Chasis">
+      <string>DKJISEPNCVG853574</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="codigo.Modelo.Vehiculo">
+     <void property="anio_fabricacion">
+      <int>2024</int>
+     </void>
+     <void property="n_Chasis">
+      <string>MDJSLSPERJS834662</string>
+     </void>
+    </object>
+   </void>
+   <void method="add">
+    <object class="codigo.Modelo.Vehiculo">
+     <void property="anio_fabricacion">
+      <int>2019</int>
+     </void>
+     <void property="n_Chasis">
+      <string>JTFDTGRHTJA745643</string>
+     </void>
+    </object>
+   </void>
+  </void>
+ </object>
+</java>
